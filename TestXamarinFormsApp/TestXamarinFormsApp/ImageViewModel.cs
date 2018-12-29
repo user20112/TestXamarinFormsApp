@@ -10,15 +10,19 @@ namespace TestXamarinFormsApp
         public string Title { get; set; }
         public Image ActualImage { get; set; }
         public Image Imperfections { get; set; }
+        public Image DisplayImage { get; set; }
         public string Description { get; set; }
+        public int PassFail { get; set; }
 
 
-        public ImageViewModel(string title, Image actualImage, Image imperfections,string description)
+        public ImageViewModel(string title, Image actualImage, Image imperfections,string description,int passfail)
         {
             Title = title;
             ActualImage = actualImage;
             Imperfections = imperfections;
             Description = description;
+            PassFail = passfail;
+            
         }
     }
     

@@ -49,7 +49,7 @@ namespace TestXamarinFormsApp
             }
             else
             {
-                AnchorX = AnchorY = 0.5; //cant get position so default to center :/
+                AnchorX = AnchorY = 0.5; //Just defualt to center on bounce back.
                 this.ScaleTo(MAX_SCALE, 250, Easing.CubicInOut);
             }
         }

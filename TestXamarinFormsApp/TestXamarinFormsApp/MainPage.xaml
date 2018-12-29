@@ -3,19 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TestXamarinFormsApp"
              x:Class="TestXamarinFormsApp.MainPage">
-
-    <StackLayout>
-        <ListView x:Name="DisplayListView" ItemTapped="OnItemTapped" HasUnevenRows="true" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="15, 5, 5, 5" HorizontalOptions="StartAndExpand" Orientation="Vertical">
-                            <Label Text="This Is a image and label" HeightRequest="30"/>
-                            <Image Source="{Binding ActualImage.Source}" HeightRequest="200"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Horizontal">
+            <ListView x:Name="Image1ListView" ItemTapped="OnImageTapped" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15, 5, 5, 5" HorizontalOptions="StartAndExpand" Orientation="Vertical">
+                                <Label Text="{Binding Title}" HeightRequest="30"/>
+                                <Image Source="{Binding ActualImage.Source}" HeightRequest="100"/>
+                                <Label Text="{Binding PassFail,StringFormat='Image1 P/F {0}%'}" HeightRequest="30"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView x:Name="Image2ListView" ItemTapped="OnImageTapped" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15, 5, 5, 5" HorizontalOptions="StartAndExpand" Orientation="Vertical">
+                                <Label Text="{Binding Title,StringFormat='{0}'}" HeightRequest="30"/>
+                                <Image Source="{Binding ActualImage.Source}" HeightRequest="100"/>
+                                <Label Text="{Binding PassFail,StringFormat='Image1 P/F {0}%'}" HeightRequest="30"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate> -
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <Label x:Name="PercentChangeLabel"> </Label>
+        <Button Text="Reset" Clicked="ResetClick"></Button>
     </StackLayout>
 </ContentPage>
