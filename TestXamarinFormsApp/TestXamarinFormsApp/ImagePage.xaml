@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:testxamarinformsapp="clr-namespace:TestXamarinFormsApp"
+             x:Class="TestXamarinFormsApp.ImagePage">
+    <StackLayout Padding="15, 5, 5, 5" HorizontalOptions="StartAndExpand" Orientation="Vertical">
+        <Label Text="{Binding Image.Title}" Font="10" />
+        <Label Text="{Binding Image.Description}" Font="8" />
+        <testxamarinformsapp:ZoomImage Source="{Binding Image.Image}" />
+    </StackLayout>
+</ContentPage>
