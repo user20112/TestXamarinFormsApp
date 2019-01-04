@@ -16,17 +16,14 @@ namespace TestXamarinFormsApp
         {
 
             InitializeComponent();
-            MainPageViewModel MainPageData = new MainPageViewModel();
-            MainPageData.ListViewSource.Add(new ImageModel("Apple", "apple.jpg", "This is an apple"));
-            MainPageData.ListViewSource.Add(new ImageModel("Melon", "melon.jpg", "This is a watermelon"));
-            MainPageData.ListViewSource.Add(new ImageModel("Pomegranate", "pomegranate.jpg", "This is a pomegranate"));
-            MainPageData.ListViewSource.Add(new ImageModel("Strawberry", "strawberry.jpg", "This is a strawberry"));
-            BindingContext = MainPageData;
+            BindingContext = new MainPageViewModel();
 
         }
 
         public void OnItemTapped(object o, ItemTappedEventArgs e)
         {
+            
+            
             Navigation.PushAsync(new ImagePage
             {
                 BindingContext = new ImagePageViewModel((ImageModel)((ListView)o).SelectedItem)

@@ -14,6 +14,10 @@ namespace TestXamarinFormsApp
        public MainPageViewModel()
         {
             ListViewSource = new ObservableCollection<ImageModel>();
+            ListViewSource.Add(new ImageModel("Apple", "apple.jpg", "This is an apple"));
+            ListViewSource.Add(new ImageModel("Melon", "melon.jpg", "This is a watermelon"));
+            ListViewSource.Add(new ImageModel("Pomegranate", "pomegranate.jpg", "This is a pomegranate"));
+            ListViewSource.Add(new ImageModel("Strawberry", "strawberry.jpg", "This is a strawberry"));
         }
 
         public event PropertyChangedEventHandler PropertyChanged

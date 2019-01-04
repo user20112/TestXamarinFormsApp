@@ -4,8 +4,8 @@
              xmlns:testxamarinformsapp="clr-namespace:TestXamarinFormsApp"
              x:Class="TestXamarinFormsApp.ImagePage">
     <StackLayout Padding="15, 5, 5, 5" HorizontalOptions="StartAndExpand" Orientation="Vertical">
-        <Label Text="{Binding Image.Title}" Font="10" />
-        <Label Text="{Binding Image.Description}" Font="8" />
+        <Label Text="{Binding Image.Title}" Font="Medium" />
+        <Label Text="{Binding Image.Description}" Font="Small" />
         <testxamarinformsapp:ZoomImage Source="{Binding Image.Image}" />
     </StackLayout>
 </ContentPage>
