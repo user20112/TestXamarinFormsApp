@@ -2,16 +2,27 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace TestXamarinFormsApp 
+namespace TestXamarinFormsApp
 {
     class MainPageViewModel : INotifyPropertyChanged
     {
-       public ObservableCollection<ImageModel> ListViewSource { get; set; }
-
-        
-       public MainPageViewModel()
+        private ObservableCollection<ImageModel> _ListViewSource;
+        public ObservableCollection<ImageModel> ListViewSource
+        {
+            get
+            {
+                return _ListViewSource;
+            }
+            set
+            {
+                _ListViewSource = value;
+                OnPropertyChanged(nameof(ListViewSource));
+            }
+        }
+        public MainPageViewModel()
         {
             ListViewSource = new ObservableCollection<ImageModel>();
             ListViewSource.Add(new ImageModel("Apple", "apple.jpg", "This is an apple"));
@@ -19,18 +30,16 @@ namespace TestXamarinFormsApp
             ListViewSource.Add(new ImageModel("Pomegranate", "pomegranate.jpg", "This is a pomegranate"));
             ListViewSource.Add(new ImageModel("Strawberry", "strawberry.jpg", "This is a strawberry"));
         }
-
-        public event PropertyChangedEventHandler PropertyChanged
+        public void Add(ImageModel Image)
         {
-            add
-            {
-                ((INotifyPropertyChanged)ListViewSource).PropertyChanged += value;
-            }
+            ListViewSource.Add(Image);
+            OnPropertyChanged(nameof(ListViewSource));
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-            remove
-            {
-                ((INotifyPropertyChanged)ListViewSource).PropertyChanged -= value;
-            }
         }
     }
 }
