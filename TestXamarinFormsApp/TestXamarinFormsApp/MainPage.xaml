@@ -3,20 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TestXamarinFormsApp"
              x:Class="TestXamarinFormsApp.MainPage">
+
     <ListView ItemTapped="OnItemTapped"  ItemsSource="{Binding ListViewSource}">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50" />
-                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="2*" />
                         </Grid.ColumnDefinitions>
-                        <Image Source="{Binding Image}" Grid.Row="0" Grid.Column="0" />
-                        <Label Text="{Binding Title}" Font="Medium"  Grid.Row="0" Grid.Column="1" XAlign="Center" />
-                        <Label Text="{Binding Description}" Font="Small"  Grid.Row="0" Grid.Column="2" XAlign="Center"/>
+                        <Image Source="{Binding Image}" Aspect="AspectFill" />
+                        <Label Text="{Binding Title}" Style="{StaticResource MediumCenterLabel}" Grid.Column="1" />
+                        <Label Text="{Binding Description}" Style="{StaticResource SmallCenterLabel}" Grid.Column="2" />
                     </Grid>
                 </ViewCell>
             </DataTemplate>
